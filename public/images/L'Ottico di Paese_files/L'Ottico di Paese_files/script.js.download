@@ -1,0 +1,211 @@
+$(document).ready(function () {
+    animate();
+    init();
+
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-background"));
+
+    if ("IntersectionObserver" in window) {
+        let lazyBackgroundObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    let lazyBackground = entry.target;
+                    lazyBackground.style.backgroundImage = lazyBackground.dataset.bg;
+                    lazyBackgroundObserver.unobserve(lazyBackground);
+                }
+            });
+        });
+
+        lazyBackgrounds.forEach(function (lazyBackground) {
+            lazyBackgroundObserver.observe(lazyBackground);
+        });
+    } else {
+        // Fallback per browser più vecchi
+        lazyBackgrounds.forEach(function (lazyBackground) {
+            lazyBackground.style.backgroundImage = lazyBackground.dataset.bg;
+        });
+    }
+});
+
+
+function init() {
+
+    $(window).on('load', function () {
+        $("#overlay").delay(0).animate({ 'opacity': 0 }, 800, function () {
+            $('#overlay').fadeOut('slow');
+        });
+        $("#progress-bar").css('width', '100%');
+        setTimeout(function () {
+            $("#progress-bar").addClass('completed');
+        }, 400); // Delay to ensure the width transition completes
+    });
+
+    // Simulate loading progress
+
+
+
+
+
+
+
+
+
+    $('#home-btn').on('click', function () {
+        $('.nav-link').removeClass('active-link');
+        $('#home-page').show();
+        $('#chisiamo-page').hide();
+        $('#soluzionivisive-page').hide();
+        $('#servizi-page').hide();
+        $('#contattologia-page').hide();
+        $('#contattaci-page').hide();
+        $('#blog-page').hide();
+    });
+
+    $('#soluzioni-btn').on('click', function () {
+        counter();
+        $('.nav-link').removeClass('active-link');
+        $(this).addClass('active-link');
+        $('#home-page').hide();
+        $('#chisiamo-page').hide();
+        $('#soluzionivisive-page').show();
+        $('#servizi-page').hide();
+        $('#contattologia-page').hide();
+        $('#contattaci-page').hide();
+        $('#blog-page').hide();
+    });
+
+    $('#chisiamo-btn').on('click', function () {
+        $('.nav-link').removeClass('active-link');
+        $(this).addClass('active-link');
+        $('#home-page').hide();
+        $('#chisiamo-page').show();
+        $('#soluzionivisive-page').hide();
+        $('#servizi-page').hide();
+        $('#contattologia-page').hide();
+        $('#contattaci-page').hide();
+        $('#blog-page').hide();
+    });
+
+    $('#servizi-btn').on('click', function () {
+        $('.nav-link').removeClass('active-link');
+        $(this).addClass('active-link');
+        $('#home-page').hide();
+        $('#chisiamo-page').hide();
+        $('#soluzionivisive-page').hide();
+        $('#servizi-page').show();
+        $('#contattologia-page').hide();
+        $('#contattaci-page').hide();
+        $('#blog-page').hide();
+    });
+
+    $('#contattologia-btn').on('click', function () {
+        $('.nav-link').removeClass('active-link');
+        $(this).addClass('active-link');
+        $('#home-page').hide();
+        $('#chisiamo-page').hide();
+        $('#soluzionivisive-page').hide();
+        $('#servizi-page').hide();
+        $('#contattologia-page').show();
+        $('#contattaci-page').hide();
+        $('#blog-page').hide();
+    });
+
+    $('#contattaci-btn').on('click', function () {
+        $('.nav-link').removeClass('active-link');
+        $(this).addClass('active-link');
+        $('#home-page').hide();
+        $('#chisiamo-page').hide();
+        $('#soluzionivisive-page').hide();
+        $('#servizi-page').hide();
+        $('#contattologia-page').hide();
+        $('#contattaci-page').show();
+        $('#blog-page').hide();
+    });
+
+    $('#blog-btn').on('click', function () {
+        $('.nav-link').removeClass('active-link');
+        $(this).addClass('active-link');
+        $('#home-page').hide();
+        $('#chisiamo-page').hide();
+        $('#soluzionivisive-page').hide();
+        $('#servizi-page').hide();
+        $('#contattologia-page').hide();
+        $('#contattaci-page').hide();
+        $('#blog-page').show();
+    });
+}
+
+
+
+
+function animate() {
+    // Use Intersection Observer to determine if objects are within the viewport
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target); // Disconnetti l'osservatore dopo aver aggiunto la classe
+            }
+        });
+    });
+
+    // Get all the elements with the .animate class applied
+    const allAnimatedElements = document.querySelectorAll('.animate');
+
+    // Add the observer to each of those elements
+    allAnimatedElements.forEach((element) => observer.observe(element));
+}
+
+
+
+function counter() {
+    let counter = document.getElementById('counter');
+    let count = 0;
+    let target = 1000;
+    let increment = target / 200; // Incremento per ogni step
+    let initialFontSize = 30; // Dimensione iniziale del font in pixel
+    let maxFontSize = 48; // Dimensione massima del font in pixel
+    let fontIncrement = (maxFontSize - initialFontSize) / 200; // Incremento del font per ogni step
+
+    function updateCounter() {
+        if (count < target) {
+            count += increment;
+            counter.textContent = Math.round(count);
+            let newFontSize = initialFontSize + (count / target) * (maxFontSize - initialFontSize);
+            counter.style.fontSize = newFontSize + 'px';
+            setTimeout(updateCounter, 10); // Aggiorna ogni 10ms
+        } else {
+            counter.textContent = target; // Assicurati che il numero finale sia esattamente 200
+            counter.style.fontSize = maxFontSize + 'px'; // Assicurati che la dimensione finale del font sia esattamente quella massima
+
+        }
+    }
+
+    updateCounter();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var navbarLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    var homeButton = document.querySelector('#home-btn');
+    var navbarCollapse = document.querySelector('.navbar-collapse');
+
+    function closeNavbarWithDelay() {
+        setTimeout(function () {
+            if (navbarCollapse.classList.contains('show')) {
+                $('.navbar-collapse').collapse('hide');
+            }
+        }, 200); // Ritardo di 200 millisecondi
+    }
+
+    navbarLinks.forEach(function (link) {
+        link.addEventListener('click', closeNavbarWithDelay);
+    });
+
+    homeButton.addEventListener('click', closeNavbarWithDelay);
+});
+
+
+

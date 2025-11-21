@@ -1,0 +1,395 @@
+@media only screen and (max-width: 1200px) {
+    .card-img {
+        width: 300px;
+    }
+    
+    footer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .insta-pos {
+        flex-direction: column;
+    }
+    #orari{
+        height: auto;
+        
+
+
+    padding-bottom: 30px;
+    }
+    iframe {
+        width: 100%;
+    }
+
+
+    .instagram {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 1500px) {
+#small{
+    flex-direction: column;    
+}
+
+}
+@media only screen and (max-width: 680px) {
+
+
+    .button-div{
+        width: 100%;
+        flex-direction: column;
+      }
+        
+    .button-div a {
+        width: 100%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+     
+  }
+  .button-div  a:first-child {
+      width: 100%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+  }
+
+
+    .carousel img {
+        width: 235px;
+        height: 60px;
+        padding: 10px;
+        background-color: transparent;
+        justify-content: center;
+        align-items: center;
+        display: flex
+    ;
+    }
+
+    #titolo-soluzioni{
+        font-size: 26px;
+    }
+
+    #torna-su {
+        opacity: 1;
+    }
+
+    h1 {
+        font-size: 34px;
+        text-align: center;
+        letter-spacing: 0.01em;
+    }
+
+    .cont2img {
+        flex-direction: column;
+    }
+
+    #img2 {
+        height: 100vmax;
+        width: 100%;
+        background-position-y: 0;
+    }
+    #vert{
+        padding-top: 10%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+    #img2 {
+        display: none;
+        width: 100%;
+        background-position-y: 0;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .descrizione {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        padding-left: 5%;
+        padding-right: 5%;
+      
+    }
+    .cont-base {
+        margin-top: 71.78px
+    
+    }
+
+    .navbar-light {
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem !important;
+        background-color: white !important;
+    }
+    #rev-cont {
+        flex-direction: column-reverse;
+    }
+
+  
+    #img3 {
+        width: 100%;
+        height: 450px;
+    }
+
+    #img4 {
+        width: 100%;
+        height: 400px;
+    }
+
+    #img5 {
+        width: 100%;
+    }
+    #soluzioni{
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+
+    .contenitore {
+        padding-left: 0%;
+        padding-right: 0%;
+        height: 84%;
+    }
+
+    .servizi2 {
+        flex-direction: column;
+    }
+
+    #serv4 {
+        background-color: transparent;
+        padding-top: 00rem;
+    }
+    .descriz-chisiamo {
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+
+    }
+    #ababa{
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+    #c12{
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+    #c1234{
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+
+    #Domicilio{
+        align-items: center;
+        height: auto;
+    }
+
+    #a5525{
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+    #c123{
+        flex-direction: column;
+
+    }
+    .cont23 .descriz-chisiamo {
+        margin-top: 5%;
+        width: 100%;
+        
+
+    }
+
+
+    #vert .card {
+        height: auto;
+    }
+
+    #Domicilio .card{
+        height: auto;
+    }
+
+    .card-img {
+        width: 370px;
+    }
+
+    .servizi3 {
+        flex-direction: column;
+    }
+
+    #BLOG h1 {
+        margin-top: 2rem;
+        text-align: center; */
+    }
+
+    
+.servizi3 div {
+
+}
+
+    .cont234{
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    #cont234{
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    #img-contattologia{
+        width: 100%;
+        height: 350px;
+    }
+    #img-chisiamo2{
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 180px;
+        
+    }
+    #contatt-descr{
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        padding-left: 5%;
+        padding-right: 5%;
+     
+    }
+    #a56{
+        flex-direction: column;
+    }
+    footer {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+    #img10{
+        width: 100%;
+        height: 550px;
+
+    }
+
+    #img1{
+        width: 100%;
+
+        height: 100vmax;
+    }
+    #img11{
+        width: 100%;
+        height: 550px;
+
+    }
+
+    #pauli12{
+        height: auto;
+        flex-direction: column;
+    }
+    .cont-2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #img-contattaci {
+        width: 100%;
+        height: 450px;
+    }
+
+    #img-chisiamo {
+        width: 100%;
+        height: 450px;
+    }
+
+
+    #img-servizi {
+        width: 100%;
+        height: 350px;
+        background-position: right;
+    }
+    #img-serviziA {
+        width: 100%;
+        height: 350px;
+        background-position: right;
+        background-position: center;
+    }
+
+
+    .cont23 {
+        flex-direction: column;
+       
+
+    }
+    .cont23 #img-soluzioni{
+        flex-direction: column;
+       
+
+    }
+    #sola{
+        flex-direction: column;
+    }
+
+    #img-soluzioni {
+        width: 100%;
+        height: 350px;
+        flex-direction: column;
+    }
+    #chiaro  h1{
+        width: 100%;
+        margin-top: 30%;
+    }
+    
+
+}
+
+
+
+/* Una riga per schermi grandi */
+@media (min-width: 901px) {
+    .cont-marchi {
+        grid-template-columns: repeat(6, 1fr);
+
+        /* 6 colonne */
+    }
+}
+
+/* Due righe per schermi medi */
+@media (min-width: 601px) and (max-width: 900px) {
+    .cont-marchi {
+        grid-template-columns: repeat(3, 1fr);
+
+        /* 3 colonne */
+    }
+}
+
+/* Tre righe per schermi piccoli */
+@media (max-width: 600px) {
+    .cont-marchi {
+        column-gap: 0px;
+        row-gap: 15px;
+        padding: 3%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 00px;
+    }
+    
+    .cont-marchi img {
+        background-position: center;
+        margin: 0% auto; /* This centers the image horizontally */
+        display: block; /* Ensures the image is treated as a block element */
+    }
+    
+    
+}
+
+
+
