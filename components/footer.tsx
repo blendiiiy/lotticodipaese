@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import { Logo } from "@/components/logo"
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">L'OTTICO DI PAESE</h3>
+            <Logo size="sm" className="mb-4 text-primary-foreground [&_svg]:stroke-primary-foreground [&_span]:text-primary-foreground" />
             <p className="text-sm text-primary-foreground/80 mb-4">
               Soluzioni visive personalizzate con tecnologia all'avanguardia
             </p>

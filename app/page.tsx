@@ -10,7 +10,27 @@ import { SpotlightCard } from "@/components/21dev/spotlight-card"
 import { GradientButton } from "@/components/21dev/gradient-button"
 import { VideoHero } from "@/components/video-hero"
 import { SmartVideoHero } from "@/components/smart-video-hero"
+import { LogoCloud } from "@/components/logo-cloud"
 export default function HomePage() {
+  const brands = [
+    { name: "Lozza", src: "/images/L'Ottico di Paese_files/mark.jpg", alt: "Lozza - Occhiali originali dal 1878" },
+    { name: "YALEA", src: "/images/L'Ottico di Paese_files/yalea.jpg", alt: "YALEA Eyewear" },
+    { name: "SOHO LONDON", src: "/images/L'Ottico di Paese_files/logo1.png", alt: "SOHO LONDON Eyewear" },
+    { name: "BUST-OUT EYEWEAR", src: "/images/L'Ottico di Paese_files/logo2.png", alt: "BUST-OUT EYEWEAR" },
+    { name: "LIU•JO", src: "/images/L'Ottico di Paese_files/liujo.jpg", alt: "LIU•JO Eyewear" },
+    { name: "centrostyle", src: "/images/L'Ottico di Paese_files/centrostyle.png", alt: "centrostyle around People" },
+    { name: "RE.DA OCCHIALI", src: "/images/L'Ottico di Paese_files/logo3.jpg", alt: "RE.DA OCCHIALI" },
+    { name: "Woodys", src: "/images/L'Ottico di Paese_files/logo4.png", alt: "Woodys Eyewear" },
+    { name: "POLICE", src: "/images/L'Ottico di Paese_files/logo5.png", alt: "POLICE Eyewear" },
+    { name: "FURLA EYEWEAR", src: "/images/L'Ottico di Paese_files/logo6.png", alt: "FURLA EYEWEAR" },
+    { name: "TWINSET MILANO", src: "/images/L'Ottico di Paese_files/logo7.png", alt: "TWINSET MILANO" },
+    { name: "VISIONARIO", src: "/images/L'Ottico di Paese_files/logo8.jpg", alt: "VISIONARIO" },
+    { name: "Officine VINCI EYEWEAR", src: "/images/L'Ottico di Paese_files/vinci.jpg", alt: "Officine VINCI EYEWEAR" },
+    { name: "Polaroid", src: "/images/L'Ottico di Paese_files/logo11.jpg", alt: "Polaroid Eyewear" },
+    { name: "ST!NG", src: "/images/L'Ottico di Paese_files/logo12.webp", alt: "ST!NG Eyewear" },
+    { name: "OLD SCHOOL EYEWEAR", src: "/images/L'Ottico di Paese_files/oldschool.jpg", alt: "OLD SCHOOL EYEWEAR" },
+    { name: "GOODVISION", src: "/images/L'Ottico di Paese_files/logo-goodvision.png", alt: "GOODVISION - SEE GOOD FEEL GOOD" },
+  ]
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Optician",
@@ -310,6 +330,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Brands/Sponsors Section */}
+      <LogoCloud
+        logos={brands}
+        title="I Nostri Marchi"
+        subtitle="Selezioniamo con cura solo marchi di alta qualità per offrirti il meglio"
+      />
 
       {/* CTA Section - Premium */}
       <section className="py-28 bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-white relative overflow-hidden">

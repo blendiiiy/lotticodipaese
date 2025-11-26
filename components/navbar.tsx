@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { Logo } from "@/components/logo"
 
 const navItems = [
   { href: "/soluzioni-visive", label: "SOLUZIONI VISIVE" },
@@ -21,8 +22,8 @@ export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/90 shadow-sm">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-lg font-bold text-primary">L'OTTICO DI PAESE</span>
+        <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <Logo size="sm" />
         </Link>
 
         {/* Desktop Navigation */}
