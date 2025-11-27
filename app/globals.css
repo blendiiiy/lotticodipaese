@@ -4,27 +4,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 34%; /* #565656 - Body text gray */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 11%; /* #1c1c1c - Dark gray for headings */
+    /* Background & Foreground */
+    --background: 0 0% 100%; /* Pure white */
+    --foreground: 0 0% 11%; /* #1c1c1c - Dark gray/black for body text */
+    
+    /* Primary Color - Dark Gray/Black (matching old site) */
+    --primary: 0 0% 11%; /* #1c1c1c - Dark gray/black like old site */
+    --primary-foreground: 0 0% 100%; /* White text on primary buttons */
+    
+    /* Secondary Color - Light Gray Background (like old navbar) */
+    --secondary: 210 17% 95%; /* #f8f9fa - Light gray for navbar/backgrounds */
+    --secondary-foreground: 0 0% 11%; /* Dark text on secondary */
+    
+    /* Accent Color - Gold/Amber for Highlights */
+    --accent: 43 96% 56%; /* #f59e0b - Gold/amber for highlights */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    
+    /* Muted Colors */
+    --muted: 220 14% 96%; /* Light gray for muted backgrounds */
+    --muted-foreground: 0 0% 34%; /* #565656 - Gray for muted text */
+    
+    /* Card Colors */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 11%; /* Dark text on cards */
+    
+    /* Popover */
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 11%;
-    /* Primary: Dark gray from original site */
-    --primary: 0 0% 11%; /* #1c1c1c - Dark gray/blackish */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
-    --secondary: 210 17% 95%; /* #f8f9fa - Light gray for navbar/secondary */
-    --secondary-foreground: 0 0% 11%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 0 0% 34%; /* #565656 - Muted text gray */
-    /* Accent: Keep gold for highlights */
-    --accent: 43 96% 56%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 0 0% 11%; /* Match primary */
+    
+    /* Borders & Inputs */
+    --border: 220 13% 91%; /* Light gray borders */
+    --input: 220 13% 91%; /* Light gray inputs */
+    --ring: 0 0% 11%; /* Dark gray for focus rings */
+    
+    /* Destructive (for errors) */
+    --destructive: 0 84.2% 60.2%; /* Red for errors */
+    --destructive-foreground: 0 0% 98%; /* Light text on destructive */
+    
+    /* Border Radius */
     --radius: 0.75rem;
   }
 
@@ -35,19 +52,19 @@
     --card-foreground: 0 0% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 210 100% 50%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 11%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 0 0% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 43 96% 56%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 210 100% 50%;
+    --ring: 0 0% 90%;
   }
 }
 
@@ -55,6 +72,11 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
   }
@@ -73,5 +95,30 @@
   .animate-scroll {
     animation: scroll 30s linear infinite;
   }
+  
+  /* Smooth fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  /* Consistent hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
 }
-

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Play, Pause, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Star } from "lucide-react"
@@ -29,14 +28,12 @@ const VIDEO_PATHS = [
 export function SmartVideoHero({
   title,
   subtitle,
-  ctaText = "Prenota una Visita",
+  ctaText = "Book an Appointment",
   ctaLink = "/contattaci",
-  secondaryCtaText = "Scopri i Servizi",
+  secondaryCtaText = "Discover Services",
   secondaryCtaLink = "/servizi",
   fallbackImage,
 }: SmartVideoHeroProps) {
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [isMuted, setIsMuted] = useState(true)
   const [videoSrc, setVideoSrc] = useState<string | null>(null)
   const [videoError, setVideoError] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -59,23 +56,15 @@ export function SmartVideoHero({
     checkVideo()
   }, [])
 
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play()
-      }
-      setIsPlaying(!isPlaying)
+  // Ensure video autoplays and is always muted
+  useEffect(() => {
+    if (videoRef.current && videoSrc && !videoError) {
+      videoRef.current.muted = true
+      videoRef.current.play().catch(() => {
+        // Handle autoplay restrictions
+      })
     }
-  }
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
-    }
-  }
+  }, [videoSrc, videoError])
 
   return (
     <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden">
@@ -86,7 +75,7 @@ export function SmartVideoHero({
             ref={videoRef}
             className="w-full h-full object-cover"
             loop
-            muted={isMuted}
+            muted
             playsInline
             autoPlay
             onError={() => setVideoError(true)}
@@ -104,73 +93,44 @@ export function SmartVideoHero({
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary to-primary/80" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/75" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.3)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.5)_100%)]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container px-4 md:px-6 text-center">
         <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 mb-6">
-            <Star className="h-4 w-4 text-accent" />
-            <span className="text-sm font-semibold text-white uppercase tracking-wider">L'Ottico di Paese</span>
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-xl rounded-full border-2 border-white/30 mb-8 shadow-xl">
+            <Star className="h-5 w-5 text-accent" />
+            <span className="text-sm font-bold text-white uppercase tracking-wider">L'Ottico di Paese</span>
           </div>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-            {title}
-            <span className="block mt-2 bg-gradient-to-r from-accent via-accent/90 to-accent bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight drop-shadow-2xl">
+            <span className="block mb-3">{title}</span>
+            <span className="block mt-3 bg-gradient-to-r from-accent via-accent/90 to-accent bg-clip-text text-transparent drop-shadow-lg">
               {subtitle}
             </span>
           </h1>
           
-          <p className="text-base md:text-lg text-white/95 max-w-2xl mx-auto leading-relaxed">
-            Soluzioni visive personalizzate con tecnologia all'avanguardia. 
-            <span className="block mt-1">La tua vista è la nostra passione.</span>
+          <p className="text-lg md:text-xl lg:text-2xl text-white font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+            Personalized visual solutions with cutting-edge technology. 
+            <span className="block mt-2 text-white/95">Your vision is our passion.</span>
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <Button asChild size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 shadow-xl">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+            <Button asChild size="lg" className="text-lg px-10 py-7 bg-primary hover:bg-primary/90 text-primary-foreground shadow-2xl font-bold">
               <Link href={ctaLink} className="flex items-center gap-2">
                 {ctaText}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="text-base px-8 py-6 border-2 border-white/80 text-white bg-white/20 hover:bg-white hover:text-primary backdrop-blur-md font-semibold">
+            <Button asChild size="lg" variant="outline" className="text-lg px-10 py-7 border-2 border-white text-white bg-white/20 hover:bg-white hover:text-primary backdrop-blur-md font-bold shadow-xl">
               <Link href={secondaryCtaLink}>{secondaryCtaText}</Link>
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Video Controls - Only show if video is playing */}
-      {videoSrc && !videoError && (
-        <div className="absolute bottom-8 right-8 z-20 flex gap-2">
-          <Button
-            size="icon"
-            variant="secondary"
-            className="rounded-full bg-white/20 backdrop-blur-md hover:bg-white/30 border border-white/30"
-            onClick={togglePlay}
-          >
-            {isPlaying ? (
-              <Pause className="h-5 w-5 text-white" />
-            ) : (
-              <Play className="h-5 w-5 text-white" />
-            )}
-          </Button>
-          <Button
-            size="icon"
-            variant="secondary"
-            className="rounded-full bg-white/20 backdrop-blur-md hover:bg-white/30 border border-white/30"
-            onClick={toggleMute}
-          >
-            {isMuted ? (
-              <VolumeX className="h-5 w-5 text-white" />
-            ) : (
-              <Volume2 className="h-5 w-5 text-white" />
-            )}
-          </Button>
-        </div>
-      )}
     </section>
   )
 }

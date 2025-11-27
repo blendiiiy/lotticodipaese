@@ -20,7 +20,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/90 shadow-sm">
+    <nav className="sticky top-0 z-50 w-full border-b bg-secondary shadow-sm">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
           <Logo size="sm" />
@@ -37,19 +37,6 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-        </div>
-
-        {/* WhatsApp Button */}
-        <div className="hidden md:flex items-center">
-          <Button asChild size="sm" className="bg-green-600 hover:bg-green-700 text-white">
-            <a
-              href="https://wa.me/393404617078"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
-            </a>
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -76,15 +63,6 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Button asChild size="sm" className="bg-green-600 hover:bg-green-700 w-full">
-              <a
-                href="https://wa.me/393404617078"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Scrivici su WhatsApp
-              </a>
-            </Button>
           </div>
         </div>
       )}

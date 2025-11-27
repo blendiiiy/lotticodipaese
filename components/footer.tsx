@@ -4,13 +4,13 @@ import { Logo } from "@/components/logo"
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-secondary text-foreground">
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <Logo size="sm" className="mb-4 text-primary-foreground [&_svg]:stroke-primary-foreground [&_span]:text-primary-foreground" />
-            <p className="text-sm text-primary-foreground/80 mb-4">
+            <Logo size="sm" className="mb-4" />
+            <p className="text-sm text-muted-foreground mb-4">
               Soluzioni visive personalizzate con tecnologia all'avanguardia
             </p>
             <div className="flex flex-col space-y-2 text-sm">
@@ -55,11 +55,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-primary-foreground/20">
+        <div className="mt-8 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-            <p>L'Ottico di Paese P.IVA/C.F.: 05244170261</p>
+            <p className="text-muted-foreground">L'Ottico di Paese P.IVA/C.F.: 05244170261</p>
             <div className="mt-4 md:mt-0">
-              <p className="text-primary-foreground/80">SEGUICI SUI SOCIAL</p>
+              <p className="text-muted-foreground">SEGUICI SUI SOCIAL</p>
             </div>
           </div>
         </div>

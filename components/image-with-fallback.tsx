@@ -36,7 +36,7 @@ export function ImageWithFallback({
       alt={alt}
       width={width}
       height={height}
-      className={`object-cover w-full h-full ${className}`}
+      className={`w-full h-full ${className}`}
       onError={() => setImgError(true)}
       unoptimized
     />

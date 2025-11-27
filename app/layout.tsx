@@ -1,19 +1,39 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
+import { NavbarSections } from "@/components/21dev/navbar-sections";
 import { Footer } from "@/components/footer";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { ScrollToTop } from "@/components/scroll-to-top";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "L'Ottico di Paese - Soluzioni Visive Professionali",
+    default: "L'Ottico di Paese - Ottico Professionale a Paese Treviso | Esami Vista Gratuiti",
     template: "%s | L'Ottico di Paese",
   },
-  description: "L'Ottico di Paese offre soluzioni visive personalizzate, lenti progressive, monofocali e anti-luce blu. Servizi professionali di optometria, contattologia e riparazione occhiali. Check-up gratuiti e garanzia 12 mesi. Via Guglielmo Marconi 7, Paese TV.",
-  keywords: ["ottico Paese", "occhiali Treviso", "lenti progressive", "lenti monofocali", "lenti anti luce blu", "optometrista Paese", "contattologia Treviso", "riparazione occhiali", "esame vista gratuito", "occhiali da vista Paese", "ottico Treviso", "oculista Paese"],
+  description: "L'Ottico di Paese: ottico professionale a Paese, Treviso. Esami della vista gratuiti, lenti progressive, monofocali e anti-luce blu. Contattologia avanzata, riparazione occhiali e consulenza personalizzata. Garanzia 12 mesi. Via Guglielmo Marconi 7, Paese TV.",
+  keywords: [
+    "ottico Paese",
+    "ottico Treviso",
+    "occhiali Paese",
+    "occhiali Treviso",
+    "esame vista gratuito Paese",
+    "lenti progressive Paese",
+    "lenti monofocali Treviso",
+    "lenti anti luce blu",
+    "contattologia Paese",
+    "riparazione occhiali Treviso",
+    "optometrista Paese",
+    "oculista Paese",
+    "occhiali da vista Paese",
+    "montature occhiali Treviso",
+    "consulenza occhiali Paese",
+    "garanzia occhiali",
+    "check up visivo gratuito"
+  ],
   authors: [{ name: "L'Ottico di Paese" }],
   creator: "L'Ottico di Paese",
   publisher: "L'Ottico di Paese",
@@ -98,10 +118,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <Navbar />
+        <ScrollProgress />
+        <NavbarSections />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <FloatingWhatsApp />
+        <ScrollToTop />
       </body>
     </html>
   );
